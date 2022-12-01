@@ -75,13 +75,14 @@ exports.eliminarCliente = async (req, res) => {
 exports.actualizarCliente = async (req, res) => {
 
     try {
-        const { nombres, apellidos, documento, correo, telefono, direccion } = req.body;
+        const { codigo_usuario, nombres, apellidos, documento, correo, telefono, direccion } = req.body;
         let clientes = await Cliente.findById(req.params.id);
 
         if (!clientes) {
             res.status(404).json({msg: "El cliente no existe" })
         }
 
+        clientes.codigo_usuario = codigo_usuario;
         clientes.nombres = nombres;
         clientes.apellidos = apellidos;
         clientes.documento = documento;
@@ -94,7 +95,6 @@ exports.actualizarCliente = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).send('Hubo un error en el servidor')
         res.status(500).send('Hubo un error en el servidor')
     }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.js"
   },
-  "author": "Milena Mora",
+  "author": "Jose Ramirez",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

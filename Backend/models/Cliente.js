@@ -4,6 +4,11 @@ const mongoose = require ('mongoose');
 
 const clienteSchema = mongoose.Schema({
     
+    codigo_usuario:{
+        type:String,
+        required:true
+    },
+
     nombres:{
         type:String,
         required:true
