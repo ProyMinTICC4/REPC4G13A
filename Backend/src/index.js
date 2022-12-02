@@ -1,26 +1,20 @@
-const express = require('express');
-const conectarBD = require('../config/db');
-const cors = require('cors')
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
+// importamos bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const app = express();
-const port = 5000;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-
-// enlazar la conexión con la base de datos
-conectarBD(); // conecta la base de datos con el backend
-app.use(cors());
-
-
-//Se llama la ruta principal de cada CRUD
-app.use(express.json());
-app.use('/api/clientes', require('../routes/cliente'));
-app.use('/api/predios', require('../routes/predio'));
-app.use('/api/medidores', require('../routes/medidor'));
-app.use('/api/solicitudes', require('../routes/solicitud'));
-
-app.get('/', (req, res) => {
-    res.send("Bienvenido ya está configurado su servidor");
-});
-
-app.listen(port, () => console.log('Está conectado el servidor por el puerto', port));
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
